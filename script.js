@@ -14,15 +14,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const gameList = document.getElementById('game-list');
     const tagsContainer = document.querySelector('.tags-container');
+    const searchInput = document.getElementById('search');
+    const clearFiltersButton = document.getElementById('clear-filters');
+    const resultsSummary = document.getElementById('results-summary');
 
-    const allTags = [...new Set(games.flatMap(g => g.tags))];
-    let activeTags = [];
+    const allTags = [...new Set(games.flatMap((game) => game.tags))].sort();
+    const activeTags = new Set();
+    let query = '';
 
-    tagsContainer.innerHTML = allTags.map(tag => `<span class="tag">${tag}</span>`).join('');
+    const renderTagButtons = () => {
+        tagsContainer.innerHTML = allTags
+            .map((tag) => `<button class="tag" type="button" data-tag="${tag}">${tag}</button>`)
+            .join('');
+    };
+
+    const getFilteredGames = () => {
+        const normalizedQuery = query.trim().toLowerCase();
+        return games.filter((game) => {
+            const matchesTags = [...activeTags].every((tag) => game.tags.includes(tag));
+            if (!matchesTags) {
+                return false;
+            }
+
+            if (!normalizedQuery) {
+                return true;
+            }
+
+            const haystack = `${game.name} ${game.tags.join(' ')}`.toLowerCase();
+            return haystack.includes(normalizedQuery);
+        });
+    };
 
     const renderGames = () => {
-        const filteredGames = activeTags.length === 0 ? games : games.filter(game => activeTags.every(tag => game.tags.includes(tag)));
-        gameList.innerHTML = filteredGames.map(game => `
+        const filteredGames = getFilteredGames();
+
+        if (filteredGames.length === 0) {
+            gameList.innerHTML = '<p class="empty-state">No games match your filters yet.</p>';
+            resultsSummary.textContent = 'Showing 0 games';
+            return;
+        }
+
+        gameList.innerHTML = filteredGames.map((game) => `
             <div class="game-card">
                 <a href="${game.url}">
                     <div class="game-card-image">${game.name}</div>
@@ -33,20 +65,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 </a>
             </div>
         `).join('');
+
+        resultsSummary.textContent = `Showing ${filteredGames.length} game${filteredGames.length === 1 ? '' : 's'}`;
     };
 
-    tagsContainer.addEventListener('click', e => {
-        if (e.target.classList.contains('tag')) {
-            const tag = e.target.textContent;
-            e.target.classList.toggle('active');
-            if (activeTags.includes(tag)) {
-                activeTags = activeTags.filter(t => t !== tag);
-            } else {
-                activeTags.push(tag);
-            }
+    const syncTagButtonState = () => {
+        const tagButtons = tagsContainer.querySelectorAll('.tag');
+        tagButtons.forEach((button) => {
+            button.classList.toggle('active', activeTags.has(button.dataset.tag));
+        });
+    };
+
+    tagsContainer.addEventListener('click', (event) => {
+        const tagButton = event.target.closest('.tag');
+        if (!tagButton) {
+            return;
+        }
+
+        const { tag } = tagButton.dataset;
+        if (activeTags.has(tag)) {
+            activeTags.delete(tag);
+        } else {
+            activeTags.add(tag);
+        }
+
+        syncTagButtonState();
+        renderGames();
+    });
+
+    searchInput.addEventListener('input', (event) => {
+        query = event.target.value;
+        renderGames();
+    });
+
+    clearFiltersButton.addEventListener('click', () => {
+        if (activeTags.size > 0 || query.length > 0) {
+            activeTags.clear();
+            query = '';
+            searchInput.value = '';
+            syncTagButtonState();
             renderGames();
         }
     });
 
+    renderTagButtons();
     renderGames();
 });

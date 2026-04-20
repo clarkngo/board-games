@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quick-start references for popular board games with searchable tags.">
     <title>Board Game Quick Starts</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Board Game Quick Starts</h1>
-        <div class="tags-container">
+    <main class="container">
+        <header class="page-header">
+            <h1>Board Game Quick Starts</h1>
+            <p class="subtitle">Fast setup and gameplay refreshers for game night.</p>
+        </header>
+
+        <section class="controls" aria-label="Filter games">
+            <label for="search" class="sr-only">Search games</label>
+            <input id="search" class="search-input" type="search" placeholder="Search games or tags..." autocomplete="off">
+            <button id="clear-filters" class="clear-button" type="button">Clear filters</button>
+        </section>
+
+        <section class="tags-container" aria-label="Filter by tags">
             <!-- Tags will be dynamically inserted here -->
-        </div>
-        <div id="game-list" class="game-list">
+        </section>
+
+        <p id="results-summary" class="results-summary" aria-live="polite"></p>
+
+        <section id="game-list" class="game-list" aria-label="Game quick-start cards">
             <!-- Game cards will be dynamically inserted here -->
-        </div>
-    </div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
