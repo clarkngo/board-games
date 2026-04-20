@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const games = [
-        { name: 'Flamecraft', url: 'flamecraft.html', tags: ['strategy', 'fantasy', 'worker placement'] },
-        { name: 'Tea Witches', url: 'tea_witches.html', tags: ['set collection', 'card game'] },
-        { name: 'Splendor', url: 'splendor.html', tags: ['strategy', 'set collection', 'engine building'] },
-        { name: 'Power Grid', url: 'power_grid.html', tags: ['strategy', 'economic', 'auction'] },
-        { name: 'Bang! The Walking Dead', url: 'bang_walking_dead.html', tags: ['party game', 'deduction', 'player elimination'] },
-        { name: '7 Wonders', url: '7_wonders.html', tags: ['strategy', 'card drafting', 'set collection'] },
-        { name: 'Scythe', url: 'scythe.html', tags: ['strategy', 'economic', 'area control'] },
-        { name: 'Century: Golem Edition', url: 'century_golem.html', tags: ['strategy', 'card game', 'engine building'] },
-        { name: 'Secret Hitler', url: 'secret_hitler.html', tags: ['party game', 'deduction', 'social deduction'] },
-        { name: 'Codenames', url: 'codenames.html', tags: ['party game', 'deduction', 'word game'] }
+        { name: 'Flamecraft', url: 'flamecraft.html', image: 'assets/covers/flamecraft.svg', tags: ['strategy', 'fantasy', 'worker placement'] },
+        { name: 'Tea Witches', url: 'tea_witches.html', image: 'assets/covers/tea_witches.svg', tags: ['set collection', 'card game'] },
+        { name: 'Splendor', url: 'splendor.html', image: 'assets/covers/splendor.svg', tags: ['strategy', 'set collection', 'engine building'] },
+        { name: 'Power Grid', url: 'power_grid.html', image: 'assets/covers/power_grid.svg', tags: ['strategy', 'economic', 'auction'] },
+        { name: 'Bang! The Walking Dead', url: 'bang_walking_dead.html', image: 'assets/covers/bang_walking_dead.svg', tags: ['party game', 'deduction', 'player elimination'] },
+        { name: '7 Wonders', url: '7_wonders.html', image: 'assets/covers/7_wonders.svg', tags: ['strategy', 'card drafting', 'set collection'] },
+        { name: 'Scythe', url: 'scythe.html', image: 'assets/covers/scythe.svg', tags: ['strategy', 'economic', 'area control'] },
+        { name: 'Century: Golem Edition', url: 'century_golem.html', image: 'assets/covers/century_golem.svg', tags: ['strategy', 'card game', 'engine building'] },
+        { name: 'Secret Hitler', url: 'secret_hitler.html', image: 'assets/covers/secret_hitler.svg', tags: ['party game', 'deduction', 'social deduction'] },
+        { name: 'Codenames', url: 'codenames.html', image: 'assets/covers/codenames.svg', tags: ['party game', 'deduction', 'word game'] }
     ];
 
     const gameList = document.getElementById('game-list');
@@ -57,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         gameList.innerHTML = filteredGames.map((game) => `
             <div class="game-card">
                 <a href="${game.url}">
-                    <div class="game-card-image">${game.name}</div>
+                    <div class="game-card-image">
+                        <img src="${game.image}" alt="${game.name} cover art" loading="lazy">
+                    </div>
                     <div class="game-card-content">
                         <h3>${game.name}</h3>
                         <p>${game.tags.join(', ')}</p>
