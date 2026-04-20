@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Century: Golem Edition cover</title>
+  <desc id="desc">Decorative cover image for Century: Golem Edition.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532d" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <text x="600" y="300" fill="#ffffff" font-family="Inter, Segoe UI, sans-serif" font-size="74" font-weight="700" text-anchor="middle">Century:</text>
+  <text x="600" y="390" fill="#ffffff" font-family="Inter, Segoe UI, sans-serif" font-size="74" font-weight="700" text-anchor="middle">Golem Edition</text>
+</svg>
