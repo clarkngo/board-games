@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Scythe', url: 'scythe.html', image: 'assets/covers/scythe.svg', tags: ['strategy', 'economic', 'area control'] },
         { name: 'Century: Golem Edition', url: 'century_golem.html', image: 'assets/covers/century_golem.svg', tags: ['strategy', 'card game', 'engine building'] },
         { name: 'Secret Hitler', url: 'secret_hitler.html', image: 'assets/covers/secret_hitler.svg', tags: ['party game', 'deduction', 'social deduction'] },
-        { name: 'Codenames', url: 'codenames.html', image: 'assets/covers/codenames.svg', tags: ['party game', 'deduction', 'word game'] }
+        { name: 'Codenames', url: 'codenames.html', image: 'assets/covers/codenames.svg', tags: ['party game', 'deduction', 'word game'] },
+        { name: 'Wroth', url: 'wroth.html', image: 'assets/covers/wroth.svg', tags: ['strategy', 'area control', 'dice drafting'] },
+        { name: 'Dune: Imperium', url: 'dune_imperium.html', image: 'assets/covers/dune_imperium.svg', tags: ['strategy', 'deck building', 'worker placement'] }
     ];
 
     const gameList = document.getElementById('game-list');
