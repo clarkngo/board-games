@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Secret Hitler', url: 'secret_hitler.html', image: 'assets/covers/secret_hitler.svg', tags: ['party game', 'deduction', 'social deduction'] },
         { name: 'Codenames', url: 'codenames.html', image: 'assets/covers/codenames.svg', tags: ['party game', 'deduction', 'word game'] },
         { name: 'Wroth', url: 'wroth.html', image: 'assets/covers/wroth.svg', tags: ['strategy', 'area control', 'dice drafting'] },
-        { name: 'Dune: Imperium', url: 'dune_imperium.html', image: 'assets/covers/dune_imperium.svg', tags: ['strategy', 'deck building', 'worker placement'] }
+        { name: 'Dune: Imperium', url: 'dune_imperium.html', image: 'assets/covers/dune_imperium.svg', tags: ['strategy', 'deck building', 'worker placement'] },
+        { name: 'Botany', url: 'botany.html', image: 'assets/covers/botany.svg', tags: ['strategy', 'pick-up and deliver', 'set collection'] },
+        { name: 'Critter Kitchen', url: 'critter_kitchen.html', image: 'assets/covers/critter_kitchen.svg', tags: ['strategy', 'worker placement', 'set collection'] }
     ];
 
     const gameList = document.getElementById('game-list');
