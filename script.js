@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Wroth', url: 'wroth.html', image: 'assets/covers/wroth.svg', tags: ['strategy', 'area control', 'dice drafting'] },
         { name: 'Dune: Imperium', url: 'dune_imperium.html', image: 'assets/covers/dune_imperium.svg', tags: ['strategy', 'deck building', 'worker placement'] },
         { name: 'Botany', url: 'botany.html', image: 'assets/covers/botany.svg', tags: ['strategy', 'pick-up and deliver', 'set collection'] },
-        { name: 'Critter Kitchen', url: 'critter_kitchen.html', image: 'assets/covers/critter_kitchen.svg', tags: ['strategy', 'worker placement', 'set collection'] }
+        { name: 'Critter Kitchen', url: 'critter_kitchen.html', image: 'assets/covers/critter_kitchen.svg', tags: ['strategy', 'worker placement', 'set collection'] },
+        { name: 'Caverna', url: 'caverna.html', image: 'assets/covers/caverna.svg', tags: ['strategy', 'worker placement', 'farming'] }
     ];
 
     const gameList = document.getElementById('game-list');
